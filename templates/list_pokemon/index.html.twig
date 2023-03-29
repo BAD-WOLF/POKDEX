@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %} 
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("assets/styles/CSS/pokemons.css")}} /> 
+{% endblock %}
+
+{% block body %}
+    <center id="btns">
+        <button style="margin-top: 1%" type="button" class="btn btn-outline-success my" value="like">
+            <i class="bi bi-hand-thumbs-up"></i>
+        </button>
+        <button style="margin-top: 1%" type="btn" class="btn btn-outline-danger my" value="unlike">
+            <i class="bi bi-hand-thumbs-down"></i>
+            {#{{request(path("LikeUnlike", {"status":"like"}))}}#}
+        </button><br/>
+        <button style="margin-top: 1%;" id="open" type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+    </center>
+    <ol id="list" style="--length: {{count(date)}}" role="list">
+        {% for key, pokemon in date %}
+            <li style="--i: {{key+1}}">
+                {% for key, infoPokemon in pokemon %}
+                    <h3>{{infoPokemon["name"]}}</h3>
+                    <p>{{infoPokemon["description"]}}</p>
+                {% endfor %}
+            </li>
+        {% endfor %}
+        <center>
+            <button id="close" type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+        </center>
+    </ol>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src={{asset("assets/styles/JS/pokemon.js")}}></script>
+    <script>
+
+        $(function(){
+            $("#open").on("click", function(){
+                $("#list").slideDown(2000);
+            });
+            $("#close").on("click", function(){
+                $("#list").slideUp(2000);
+            });
+        });
+    </script>
+{% endblock %}

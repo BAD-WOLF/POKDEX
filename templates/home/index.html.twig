@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("assets/styles/CSS/home.css")}} />
+{% endblock %}
+
+{% block metas %}
+    <meta property="og:image" content="https://4.bp.blogspot.com/-UYJjvmDemn0/WT3ov0R6cpI/AAAAAAAAvgE/frFGuJ4p4Ac7umWkdZZF5qTbnKdReWP2wCLcB/s1600/landscape-1456483171-pokemon2.jpg"/>
+    <meta property="og:title" content="Site Em Andamanto"/>
+    <meta property="og:url" content="https://www.pokemon.com" />
+{% endblock %}
+
+{% block body %}
+    <center class="home">
+        <div class="text">
+            <h1>HOME</h1>
+            <p>This is the home page to test</p>
+            <label>
+                <p id="p1">pokemon list</p>
+                <a href={{path("app_list_pokemon")}}>
+                    <button id="bt">go there!!</button>
+                </a>
+            </label>
+        </div>
+    </center>
+{% endblock %}
