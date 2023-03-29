@@ -1,0 +1,38 @@
+.home {
+    height: 50vh;
+    margin-top: 50%;
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.text {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#p1 {
+    color: white;
+    font-style: italic;
+}
+
+#bt {
+    background-color: green;
+    transition-duration: 1.0s;
+    font-size: 50%;
+    background-color: yellow;
+    border: 10px groove #4CAF50;
+}
+
+#bt:hover {
+    background-color: #4CAF50;
+    transition-duration: 1.0s;
+    border-radius: 50%;
+    color: white;
+}
+
+.text > * {
+    font-size: 300%;
+}
+

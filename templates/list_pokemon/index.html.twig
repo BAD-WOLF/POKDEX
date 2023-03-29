@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %} 
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{asset("assets/styles/CSS/pokemons.css")}} /> 
+{% endblock %}
+
+{% block metas %}
+    <meta property="og:image" content="https://tm.ibxk.com.br/2016/07/19/19183755227514.jpg?ims=1120x420"/>
+    <meta property="og:url" content="www.pokemons.com"/>
+    <meta property="og:description" content="This site is to estudies"/>
+    <meta property="og:title" content="Site Em Andamento"/>
+{% endblock %}
+
+{% block body %}
+    <center id="btns">
+        <button style="margin-top: 1%" type="button" class="btn btn-outline-success">
+            <i class="bi bi-hand-thumbs-up" value="like"></i>
+        </button>
+        <button style="margin-top: 1%" type="btn" class="btn btn-outline-danger">
+            <i class="bi bi-hand-thumbs-down" value="unlike"></i>
+            {#{{request(path("LikeUnlike", {"status":"like"}))}}#}
+        </button><br/>
+        <button style="margin-top: 1%;" id="open" type="button" class="btn btn-primary btn-lg btn-block">Open List</button>
+    </center>
+    <ol id="list" style="--length: {{count(date)}}" role="list">
+        {% for key, pokemon in date %}
+            <li style="--i: {{key+1}}">
+                {% for key, infoPokemon in pokemon %}
+                    <h3>{{infoPokemon["name"]}}</h3>
+                    <p>{{infoPokemon["description"]}}</p>
+                {% endfor %}
+            </li>
+        {% endfor %}
+        <center>
+            <button id="close" type="button" class="btn btn-secondary btn-lg btn-block">Close List</button>
+        </center>
+    </ol>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src={{asset("assets/styles/JS/pokemon.js")}}></script>
+    <script>
+
+        $(function(){
+            $("#open").on("click", function(){
+                $("#list").slideDown(2000);
+            });
+            $("#close").on("click", function(){
+                $("#list").slideUp(2000);
+            });
+        });
+    </script>
+{% endblock %}
