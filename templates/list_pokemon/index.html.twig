@@ -6,11 +6,11 @@
 
 {% block body %}
     <center id="btns">
-        <button style="margin-top: 1%" type="button" class="btn btn-outline-success my" value="like">
-            <i class="bi bi-hand-thumbs-up"></i>
+        <button id="likeBtn" style="margin-top: 1%" type="button" class="btn btn-outline-success my">
+            <i class="bi bi-hand-thumbs-up" value="like"></i>
         </button>
-        <button style="margin-top: 1%" type="btn" class="btn btn-outline-danger my" value="unlike">
-            <i class="bi bi-hand-thumbs-down"></i>
+        <button style="margin-top: 1%" type="btn" class="btn btn-outline-danger my">
+            <i class="bi bi-hand-thumbs-down" value="unlike"></i>
             {#{{request(path("LikeUnlike", {"status":"like"}))}}#}
         </button><br/>
         <button style="margin-top: 1%;" id="open" type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
